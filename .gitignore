@@ -1,0 +1,9 @@
+###> inetum-orleans/docker-devbox ###
+/docker-compose.yml
+/*ddb.local.*
+/.bash_enter
+/.bash_leave
+/.docker/owasp-dependency-check/Dockerfile
+/.docker/owasp-dependency-check/fixuid.tar.gz
+###< inetum-orleans/docker-devbox ###
+/.volumes/

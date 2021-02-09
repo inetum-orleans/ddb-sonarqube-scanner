@@ -1,0 +1,22 @@
+core:
+  required_version: "1.10.2"
+  project:
+    name: sonarqube-scanner
+
+docker:
+  compose:
+    project_name: sonarqube-scanner
+
+jsonnet:
+  docker:
+    mount:
+      directory: .volumes
+
+file:
+  excludes:
+    - ./configurations
+
+cookiecutter:
+  templates:
+    - template: gh:inetum-orleans/djp-owasp-dependency-check
+    - template: gh:inetum-orleans/djp-sonar-scanner

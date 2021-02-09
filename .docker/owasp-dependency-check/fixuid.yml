@@ -1,0 +1,7 @@
+user: dependencycheck
+group: dependencycheck
+paths:
+  - /
+  - /src
+  - /report
+  - /usr/share/dependency-check/data
