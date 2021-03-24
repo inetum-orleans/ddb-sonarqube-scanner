@@ -1,6 +1,7 @@
 local ddb = import 'ddb.docker.libjsonnet';
 
 local defaultName = ddb.File(std.thisFile).parent.name;
+local version = std.extVar('versions.sonarScanner');
 
 local factory(name, params={}) =
 	local o = {
@@ -9,7 +10,7 @@ local factory(name, params={}) =
 
 	{services+: {
 		[name]+:
-			ddb.Image("sonarsource/sonar-scanner-cli:latest") +
+			ddb.Image("sonarsource/sonar-scanner-cli:" + version) +
 			ddb.User() +
             ddb.Binary("sonar-scanner", "/usr/src", "sonar-scanner", global=o.global) +
             {

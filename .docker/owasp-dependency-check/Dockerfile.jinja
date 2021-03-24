@@ -1,4 +1,4 @@
-FROM owasp/dependency-check:latest
+FROM owasp/dependency-check:{{ versions.dependencyCheck }}
 
 USER root
 RUN chown -R dependencycheck:dependencycheck /usr/share/dependency-check /report
