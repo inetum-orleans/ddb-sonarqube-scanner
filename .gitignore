@@ -5,5 +5,7 @@
 /.bash_leave
 /.docker/owasp-dependency-check/Dockerfile
 /.docker/owasp-dependency-check/fixuid.tar.gz
+/.docker/sonar-cnes-report/Dockerfile
+/.docker/sonar-cnes-report/fixuid.tar.gz
 ###< inetum-orleans/docker-devbox ###
 /.volumes/

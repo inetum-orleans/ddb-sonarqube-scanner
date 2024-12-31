@@ -1,0 +1,12 @@
+FROM eclipse-temurin:23-jre-alpine
+
+ADD https://github.com/cnescatlab/sonar-cnes-report/releases/download/{{ versions.sonarCnesReport }}/sonar-cnes-report-{{ versions.sonarCnesReport }}.jar /sonar-cnes-report.jar
+
+USER root
+# Création de l'utilisateur sonar et de son répertoire personnel
+RUN adduser -D sonar && mkdir -p /home/sonar/.cnesreport && chown -R sonar:sonar /home/sonar/.cnesreport /sonar-cnes-report.jar
+
+USER sonar
+
+VOLUME /home/sonar/.cnesreport
+ENTRYPOINT ["java", "-jar", "/sonar-cnes-report.jar"]

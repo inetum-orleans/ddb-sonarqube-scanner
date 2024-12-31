@@ -1,0 +1,6 @@
+user: sonar
+group: sonar
+paths:
+  - /
+  - /src
+  - /home/sonar/.cnesreport
