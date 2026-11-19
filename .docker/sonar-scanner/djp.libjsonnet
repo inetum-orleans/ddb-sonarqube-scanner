@@ -4,22 +4,23 @@ local defaultName = ddb.File(std.thisFile).parent.name;
 local version = std.extVar('versions.sonarScanner');
 
 local factory(name, params={}) =
-	local o = {
-		global: ddb.params.value(params, 'global', false)
-	};
+  local o = {
+    global: ddb.params.value(params, 'global', false),
+  };
 
-	{services+: {
-		[name]+:
-			ddb.Image("sonarsource/sonar-scanner-cli:" + version) +
-			ddb.User() +
-            ddb.Binary("sonar-scanner", "/usr/src", "sonar-scanner", global=o.global) +
-            {
-                command: 'sonar-scanner --help'
-            },
-		}
-	};
+  {
+    services+: {
+      [name]+:
+        ddb.Image('sonarsource/sonar-scanner-cli:' + version) +
+        ddb.User() +
+        ddb.Binary('sonar-scanner', '/usr/src', 'sonar-scanner', global=o.global) +
+        {
+          command: 'sonar-scanner --help',
+        },
+    },
+  };
 
 {
   factory: factory,
-  defaultName: defaultName
+  defaultName: defaultName,
 }
