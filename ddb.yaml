@@ -24,4 +24,4 @@ cookiecutter:
 versions:
   dependencyCheck: latest
   sonarScanner: latest
-  sonarCnesReport: 5.0.0
+  sonarCnesReport: 5.0.5
